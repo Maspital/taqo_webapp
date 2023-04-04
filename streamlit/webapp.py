@@ -1,5 +1,9 @@
+import time
+
 import streamlit as st
 from streamlit_sortables import sort_items
+from streamlit_ace import st_ace
+
 import pandas as pd
 
 from modules import adder, multiplier
@@ -46,7 +50,14 @@ def add_remove_dataset(dataset_index):
     st.session_state.selected_datasets = selected_datasets
 
 
+def context_menu():
+    st.write("This is the context menu.")
+
+
 st.title("TAQO")
+
+with st.spinner("Loading"):
+    time.sleep(5)
 
 with st.expander(label="Dataset Selection", expanded=True):
     columns = st.columns(dataset_amount)
@@ -58,6 +69,7 @@ with st.expander(label="Dataset Selection", expanded=True):
         cont.checkbox(label="Use dataset", key=f"data{index}",
                       on_change=add_remove_dataset, args=(index,))
         cont.write(datasets[index])
+        # if st.context_menu()
 
 with st.expander(label="Module Selection", expanded=True):
     st.subheader("Adder")
