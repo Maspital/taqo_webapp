@@ -1,23 +1,25 @@
 # Run this app with `python app.py` and
 # visit http://127.0.0.1:8050/ in your web browser.
 
-from dash import Dash, html, dcc, callback_context
+from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
-from dash import Input, Output, State, MATCH, ALL
 
-import ast
-
-from modules import cards, handler
+from modules import dataset_card, handler, pipeline_card
+from callbacks import get_callbacks
 
 app = Dash(__name__,
+           # Select theme here https://dash-bootstrap-components.opensource.faculty.ai/docs/themes/
            external_stylesheets=[dbc.themes.BOOTSTRAP],
            prevent_initial_callbacks=True,
            )
 datasets = handler.get_datasets()
+pipelines = handler.get_pipelines()
 
 app.layout = html.Div(
     [
-        dcc.Store(id="global_store"),
+        dcc.Store(id="selected_dataset"),
+        dcc.Store(id="selected_pipelines"),
+        dcc.Store(id="created_graphs"),
 
         dbc.Stack(
             [
@@ -26,6 +28,7 @@ app.layout = html.Div(
                         src="assets/taqo.png",
                         style={
                             "paddingRight": "10px",
+                            "maxWidth": "100px",
                         }
                     ),
                     html.Div([
@@ -57,8 +60,9 @@ app.layout = html.Div(
                     [
                         dbc.Row(
                             [
-                                dbc.Col(cards.dataset_card(path, "Something", index)) for index, path in
-                                enumerate(datasets)
+                                dbc.Col(dataset_card.dataset_card(path, "Something", index))
+                                for index, path
+                                in enumerate(datasets)
                             ],
                             style={
                                 "justifyContent": "left",
@@ -69,14 +73,15 @@ app.layout = html.Div(
                 ),
                 dbc.AccordionItem(
                     [
-                        html.P("This is the content of the second section"),
-                        dbc.Button("Don't click me!", color="danger"),
+                        pipeline_card.pipeline_category(category, pipelines[category], index, len(pipelines) - 1)
+                        for index, category
+                        in enumerate(pipelines.keys())
                     ],
                     title="RBA Pipelines",
                 ),
                 dbc.AccordionItem(
                     title="Evaluation",
-                    id="eval_output",
+                    id="graph",
                 ),
             ],
             start_collapsed=False,
@@ -86,24 +91,7 @@ app.layout = html.Div(
 )
 
 
-@app.callback(
-    Output("eval_output", "children"),
-    Input({"type": "dataset_select", "index": ALL}, "n_clicks"),
-    State({"type": "dataset_select", "index": ALL}, "children"),
-    prevent_initial_call=True,
-)
-def current_dataset(*args):
-    print(args)
-    # The callback context contains the original id we assigned to the button that triggered the current callback
-    # This id corresponds to the dataset we want to access. Need to use ast because its a string repr. of a dict
-    pressed_button = ast.literal_eval(callback_context.triggered[0]["prop_id"].split(".")[0])
-    dataset_index = pressed_button["index"]
-    if dataset_index is not None:
-        return f"Pressed button: {datasets[dataset_index]}"
-    return "No button pressed."
-
-
-# next, use https://dash.plotly.com/dash-core-components/store to manage handling of chosen dataset
+get_callbacks(app)
 
 
 if __name__ == '__main__':

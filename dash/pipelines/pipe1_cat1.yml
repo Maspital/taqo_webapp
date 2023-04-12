@@ -1,0 +1,8 @@
+name: Severity Score
+category: Trivial Uncorrelated
+description: This is a description
+
+steps:
+  - What
+  - to
+  - do

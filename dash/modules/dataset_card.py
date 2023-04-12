@@ -1,4 +1,4 @@
-from dash import Dash, html, dcc
+from dash import html
 import dash_bootstrap_components as dbc
 
 
@@ -15,7 +15,7 @@ def dataset_card(title, active_set, index):
         [
             dbc.CardBody(
                 [
-                    html.H4(title.split("/")[-1], className="card-title"),
+                    html.H5(title.split("/")[-1], className="card-title"),
                     html.P(
                         "Some quick example text to build on the card title and "
                         "make up the bulk of the card's content.",
@@ -25,7 +25,7 @@ def dataset_card(title, active_set, index):
                                color="primary",
                                disabled=button_disabled,
                                id={
-                                   "type": "dataset_select",
+                                   "type": "dataset_select_button",
                                    "index": index,
                                },
                                ),
@@ -36,11 +36,3 @@ def dataset_card(title, active_set, index):
     )
 
     return card
-
-
-def pipeline_card():
-    pass
-
-
-def graph_card():
-    pass
