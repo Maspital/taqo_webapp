@@ -2,15 +2,7 @@ from dash import html
 import dash_bootstrap_components as dbc
 
 
-def dataset_card(title, active_set, index):
-    button_disabled = False
-    style = {}
-    if title == active_set:
-        button_disabled = True
-        style = {
-            "backgroundColor": "#ceedeb"
-        }
-
+def dataset_card(title, index):
     card = dbc.Card(
         [
             dbc.CardBody(
@@ -23,7 +15,6 @@ def dataset_card(title, active_set, index):
                     ),
                     dbc.Button("Activate dataset",
                                color="primary",
-                               disabled=button_disabled,
                                id={
                                    "type": "dataset_select_button",
                                    "index": index,
@@ -32,7 +23,6 @@ def dataset_card(title, active_set, index):
                 ]
             ),
         ],
-        style=style
     )
 
     return card

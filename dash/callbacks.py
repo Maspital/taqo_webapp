@@ -2,6 +2,8 @@ from dash import Output, Input, State, ALL, callback_context
 
 import ast
 
+import data_processor
+
 
 def get_callbacks(app):
     @app.callback(
@@ -11,10 +13,6 @@ def get_callbacks(app):
         prevent_initial_call=True,
     )
     def set_current_dataset(*args):
-        # The callback context contains the original id we assigned to the button that triggered the current callback
-        # This id corresponds to the dataset we want to access
-        #
-        # Need to use ast because it's a string representation of a dict
         pressed_button = ast.literal_eval(callback_context.triggered[0]["prop_id"].split(".")[0])
         dataset_index = pressed_button["index"]
         return dataset_index
@@ -25,22 +23,15 @@ def get_callbacks(app):
     )
     def set_current_pipelines(list_of_pipes):
         new_pipelines = {}
-        for pipes in list_of_pipes:
-            if pipes:
-                for pipe in pipes:
-                    pipe = ast.literal_eval(pipe)
-                    category = pipe["category"]
-                    new_pipelines.setdefault(category, [])
-                    new_pipelines[category].append(pipe)
 
-        return str(new_pipelines)
+        for category in list_of_pipes:
+            if category:
+                for pipe in category:
+                    cat, func = pipe.split("§")
+                    new_pipelines.setdefault(cat, [])
+                    new_pipelines[cat].append(func)
 
-    # @app.callback(
-    #     Output("selected_pipelines", "data"),
-    #     Input("pipeline_select_dropdown", "value")
-    # )
-    # def set_pipelines(value):
-    #     return value
+        return new_pipelines
 
     @app.callback(
         Output('graph', 'children'),
@@ -48,4 +39,6 @@ def get_callbacks(app):
         Input('selected_pipelines', 'data')
     )
     def create_graph(data, pipes):
+        if pipes:
+            data_processor.execute_pipelines(data, pipes)
         return f"{data} + {pipes}"

@@ -4,7 +4,7 @@
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 
-from modules import dataset_card, handler, pipeline_card
+from modules import dataset_cards, handler, pipeline_cards
 from callbacks import get_callbacks
 
 app = Dash(__name__,
@@ -13,7 +13,7 @@ app = Dash(__name__,
            prevent_initial_callbacks=True,
            )
 datasets = handler.get_datasets()
-pipelines = handler.get_pipelines()
+pipelines = handler.get_pipelines("./pipelines/")
 
 app.layout = html.Div(
     [
@@ -60,7 +60,7 @@ app.layout = html.Div(
                     [
                         dbc.Row(
                             [
-                                dbc.Col(dataset_card.dataset_card(path, "Something", index))
+                                dbc.Col(dataset_cards.dataset_card(path, index), width=3)
                                 for index, path
                                 in enumerate(datasets)
                             ],
@@ -72,11 +72,7 @@ app.layout = html.Div(
                     title="Datasets",
                 ),
                 dbc.AccordionItem(
-                    [
-                        pipeline_card.pipeline_category(category, pipelines[category], index, len(pipelines) - 1)
-                        for index, category
-                        in enumerate(pipelines.keys())
-                    ],
+                    pipeline_cards.create_pipeline_view(pipelines),
                     title="RBA Pipelines",
                 ),
                 dbc.AccordionItem(
