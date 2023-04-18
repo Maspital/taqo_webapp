@@ -1,5 +1,6 @@
 import importlib
 import json
+import plotly.graph_objs as go
 
 from src.modules.handler import get_datasets
 
@@ -8,11 +9,11 @@ def execute_pipelines(dataset_index, pipelines):
     pipelines = retrieve_pipeline_functions(pipelines)
     dataset = retrieve_dataset(dataset_index)
 
-    dataset = prepare_data(dataset)
+    prepped_data = prepare_data(dataset)
     final_datasets = {}
 
     for category, pipes in pipelines.items():
-        temp_data = dataset
+        temp_data = prepped_data.copy()
 
         for pipe in pipes:
             temp_data = pipe(temp_data)
@@ -20,7 +21,7 @@ def execute_pipelines(dataset_index, pipelines):
         temp_data = finalize_data(temp_data)
         final_datasets[category] = temp_data
 
-    return final_datasets
+    return create_graph(final_datasets)
 
 
 def retrieve_pipeline_functions(pipelines):
@@ -56,8 +57,52 @@ def retrieve_dataset(dataset_index):
 
 
 def prepare_data(dataset):
-    return dataset
+    fp_count = 0
+    tp_count = 0
+    for alert in dataset:
+        if alert["metadata"]["misuse"]:
+            tp_count += 1
+        else:
+            fp_count += 1
+    prep_data = {
+        "data": dataset,
+        "total_fp_count": fp_count,
+        "total_tp_count": tp_count,
+                 }
+    return prep_data
 
 
 def finalize_data(dataset):
     return dataset
+
+
+def create_graph(dataset):
+    fig = go.Figure()
+
+    for category, data in dataset.items():
+        tp_count = data["total_tp_count"]
+        fp_count = data["total_fp_count"]
+
+        fig.add_trace(
+            go.Bar(
+                name=category,
+                x=["TPs"],
+                y=[tp_count],
+                # offsetgroup=1,
+            )
+        )
+        fig.add_trace(
+            go.Bar(
+                name=category,
+                x=["FPs"],
+                y=[fp_count],
+                # offsetgroup=1,
+            )
+        )
+
+    layout = go.Layout(
+        title="Number of TPs and FPs for each category",
+        barmode="group",
+    )
+    fig.update_layout(layout)
+    return fig

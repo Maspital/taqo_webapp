@@ -78,8 +78,13 @@ app.layout = html.Div(
                     title="RBA Pipelines",
                 ),
                 dbc.AccordionItem(
+                    html.Div([
+                       dcc.Graph(id="bar_chart")
+                    ]),
                     title="Evaluation",
-                    id="graph",
+                    style={
+                        "display": "block"
+                    }
                 ),
             ],
             start_collapsed=False,

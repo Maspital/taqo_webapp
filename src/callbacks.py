@@ -1,4 +1,5 @@
 from dash import Output, Input, State, ALL, callback_context
+import plotly.graph_objs as go
 
 import ast
 
@@ -34,11 +35,14 @@ def get_callbacks(app):
         return new_pipelines
 
     @app.callback(
-        Output('graph', 'children'),
+        Output('bar_chart', 'figure'),
         Input('selected_dataset', 'data'),
         Input('selected_pipelines', 'data')
     )
     def create_graph(data, pipes):
-        if pipes:
-            dp.execute_pipelines(data, pipes)
-        return f"{data} + {pipes}"
+        if data is not None \
+                and pipes:
+            fig = dp.execute_pipelines(data, pipes)
+            return fig
+        else:
+            return go.Figure()
