@@ -1,16 +1,18 @@
 # Run this app with `python app.py` and
 # visit http://127.0.0.1:8050/ in your web browser.
-
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 
-from modules import dataset_cards, handler, pipeline_cards
-from callbacks import get_callbacks
+from os import path
+
+from src.modules import dataset_cards, handler, pipeline_cards
+from src.callbacks import get_callbacks
 
 app = Dash(__name__,
            # Select theme here https://dash-bootstrap-components.opensource.faculty.ai/docs/themes/
            external_stylesheets=[dbc.themes.BOOTSTRAP],
            prevent_initial_callbacks=True,
+           assets_url_path="/assets/",
            )
 datasets = handler.get_datasets()
 pipelines = handler.get_pipelines("./pipelines/")
@@ -86,9 +88,7 @@ app.layout = html.Div(
     ]
 )
 
-
 get_callbacks(app)
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)

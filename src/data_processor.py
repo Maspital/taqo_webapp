@@ -1,7 +1,7 @@
 import importlib
 import json
 
-from modules.handler import get_datasets
+from src.modules.handler import get_datasets
 
 
 def execute_pipelines(dataset_index, pipelines):
@@ -24,14 +24,14 @@ def execute_pipelines(dataset_index, pipelines):
 
 
 def retrieve_pipeline_functions(pipelines):
-    # Currently we only have string representation of the functions, we need to fetch the
-    # actual function from the corresponding module (= category)
+    # Currently we only have string representations of the functions, we need to fetch the
+    # actual functions from the corresponding module (= category)
     pipeline_dir = "pipelines"
-    function_dir = {}
+    function_dict = {}
 
     for category, function_list in pipelines.items():
         module_name = category.lower().replace(" ", "_").replace("-", "_")
-        module = importlib.import_module(f"{pipeline_dir}.{module_name}")
+        module = importlib.import_module(f"{pipeline_dir}.{module_name}", module_name)
 
         funcs_to_add = []
         for func in function_list:
@@ -41,9 +41,9 @@ def retrieve_pipeline_functions(pipelines):
             function_object = getattr(class_ref, function_name)
             funcs_to_add.append(function_object)
 
-        function_dir[category] = funcs_to_add
+        function_dict[category] = funcs_to_add
 
-    return function_dir
+    return function_dict
 
 
 def retrieve_dataset(dataset_index):

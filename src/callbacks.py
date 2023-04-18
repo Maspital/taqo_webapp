@@ -2,7 +2,7 @@ from dash import Output, Input, State, ALL, callback_context
 
 import ast
 
-import data_processor
+import src.data_processor as dp
 
 
 def get_callbacks(app):
@@ -40,5 +40,5 @@ def get_callbacks(app):
     )
     def create_graph(data, pipes):
         if pipes:
-            data_processor.execute_pipelines(data, pipes)
+            dp.execute_pipelines(data, pipes)
         return f"{data} + {pipes}"
