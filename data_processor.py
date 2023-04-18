@@ -24,6 +24,8 @@ def execute_pipelines(dataset_index, pipelines):
 
 
 def retrieve_pipeline_functions(pipelines):
+    # Currently we only have string representation of the functions, we need to fetch the
+    # actual function from the corresponding module (= category)
     pipeline_dir = "pipelines"
     function_dir = {}
 
