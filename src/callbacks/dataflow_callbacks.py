@@ -9,7 +9,7 @@ import src.graph_creator as gc
 
 def get_callbacks(app):
     @app.callback(
-        Output("selected_dataset", "data"),
+        Output("state_selected_dataset", "data"),
         Input({"type": "dataset_select_button", "index": ALL}, "n_clicks"),
         State({"type": "dataset_select_button", "index": ALL}, "children"),
         prevent_initial_call=True,
@@ -20,7 +20,7 @@ def get_callbacks(app):
         return dataset_index
 
     @app.callback(
-        Output("selected_pipelines", "data"),
+        Output("state_selected_pipelines", "data"),
         Input({"type": "pipeline_select_dropdown", "index": ALL}, "value"),
     )
     def set_current_pipelines(list_of_pipes):
@@ -36,11 +36,11 @@ def get_callbacks(app):
         return new_pipelines
 
     @app.callback(
-        Output('processed_data', 'data'),
-        Input('selected_dataset', 'data'),
-        Input('selected_pipelines', 'data')
+        Output('state_processed_data', 'data'),
+        Input('state_selected_dataset', 'data'),
+        Input('state_selected_pipelines', 'data')
     )
-    def create_graph(data, pipes):
+    def process_data(data, pipes):
         if data is not None and pipes:
             processed_data = dp.execute_pipelines(data, pipes)
             return processed_data
@@ -49,7 +49,7 @@ def get_callbacks(app):
 
     @app.callback(
         Output("bar_chart", "figure"),
-        Input("processed_data", "data")
+        Input("state_processed_data", "data")
     )
     def create_bar_chart(processed_data):
         if processed_data:
@@ -59,9 +59,9 @@ def get_callbacks(app):
 
     @app.callback(
         Output("bar_chart2", "figure"),
-        Input("processed_data", "data")
+        Input("state_processed_data", "data")
     )
-    def create_bar_chart(processed_data):
+    def create_second_bar_chart(processed_data):
         if processed_data:
             return gc.create_bar_chart(processed_data)
         else:
@@ -69,9 +69,9 @@ def get_callbacks(app):
 
     @app.callback(
         Output("bar_chart3", "figure"),
-        Input("processed_data", "data")
+        Input("state_processed_data", "data")
     )
-    def create_bar_chart(processed_data):
+    def create_third_bar_chart(processed_data):
         if processed_data:
             return gc.create_bar_chart(processed_data)
         else:

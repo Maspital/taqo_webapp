@@ -20,12 +20,18 @@ class SeverityScore:
         "event.severity",
     ]
 
-    default_param1 = 123
-    default_param2 = "qwer"
+    custom_params = {
+        "name_of_param1": {
+            "default": 10,
+            "min": 5,
+            "max": 15,
+        }
+    }
+    default_param1 = 10
 
     @staticmethod
     def process_data(data):
-        data["tp_count"] = data["tp_count"] + 10
+        data["tp_count"] = data["tp_count"] + SeverityScore.default_param1
         data["fp_count"] = data["fp_count"] - 10
         return data
 
@@ -39,9 +45,6 @@ class ConfidenceModifier:
     required_fields = [
         "event.confidence",
     ]
-
-    default_param1 = 456
-    default_param2 = "qwer"
 
     @staticmethod
     def process_data(data):
@@ -62,9 +65,6 @@ class LongestTacticsPath:
         "attack.tactic",
         "host.name",
     ]
-
-    default_param1 = 789
-    default_param2 = "qwer"
 
     @staticmethod
     def process_data(data):

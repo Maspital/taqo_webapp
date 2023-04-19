@@ -37,7 +37,7 @@ def dataset_card(title, index, app):
 
     @app.callback(
         Output({"type": "dataset_card", "index": index}, "color"),
-        Input("selected_dataset", "data"),
+        Input("state_selected_dataset", "data"),
     )
     def update_card_style(last_button):
         # If this card contains the last pressed button, set the color to the pressed color

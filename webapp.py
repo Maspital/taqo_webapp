@@ -19,10 +19,9 @@ pipelines = handler.get_pipelines("./pipelines/")
 
 app.layout = html.Div(
     [
-        dcc.Store(id="selected_dataset"),
-        dcc.Store(id="selected_pipelines"),
-        dcc.Store(id="processed_data"),
-        dcc.Store(id="state_last_selected_dataset"),
+        dcc.Store(id="state_selected_dataset"),
+        dcc.Store(id="state_selected_pipelines"),
+        dcc.Store(id="state_processed_data"),
 
         dbc.Stack(
             [
