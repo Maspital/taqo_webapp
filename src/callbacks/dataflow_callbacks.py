@@ -4,6 +4,7 @@ import plotly.graph_objs as go
 import ast
 
 import src.data_processor as dp
+import src.graph_creator as gc
 
 
 def get_callbacks(app):
@@ -35,14 +36,43 @@ def get_callbacks(app):
         return new_pipelines
 
     @app.callback(
-        Output('bar_chart', 'figure'),
+        Output('processed_data', 'data'),
         Input('selected_dataset', 'data'),
         Input('selected_pipelines', 'data')
     )
     def create_graph(data, pipes):
-        if data is not None \
-                and pipes:
-            fig = dp.execute_pipelines(data, pipes)
-            return fig
+        if data is not None and pipes:
+            processed_data = dp.execute_pipelines(data, pipes)
+            return processed_data
+        else:
+            return None
+
+    @app.callback(
+        Output("bar_chart", "figure"),
+        Input("processed_data", "data")
+    )
+    def create_bar_chart(processed_data):
+        if processed_data:
+            return gc.create_bar_chart(processed_data)
+        else:
+            return go.Figure()
+
+    @app.callback(
+        Output("bar_chart2", "figure"),
+        Input("processed_data", "data")
+    )
+    def create_bar_chart(processed_data):
+        if processed_data:
+            return gc.create_bar_chart(processed_data)
+        else:
+            return go.Figure()
+
+    @app.callback(
+        Output("bar_chart3", "figure"),
+        Input("processed_data", "data")
+    )
+    def create_bar_chart(processed_data):
+        if processed_data:
+            return gc.create_bar_chart(processed_data)
         else:
             return go.Figure()

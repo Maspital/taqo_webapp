@@ -1,5 +1,14 @@
 CATEGORY = "RapSheet-Inspired Correlated"
 
+# Input data will be of the following form:
+# {
+#       "data": [<list of alerts>],
+#       "tp_count": 123,
+#       "fp_count": 456,
+# }
+#
+# Each category (and its data) will be displayed separately in each graph
+
 
 class SeverityScore:
     title = "Severity Score"
@@ -14,8 +23,10 @@ class SeverityScore:
     default_param1 = 123
     default_param2 = "qwer"
 
-    def process_data(self, data):
-        print(self.default_param1)
+    @staticmethod
+    def process_data(data):
+        data["tp_count"] = data["tp_count"] + 10
+        data["fp_count"] = data["fp_count"] - 10
         return data
 
 
@@ -32,8 +43,10 @@ class ConfidenceModifier:
     default_param1 = 456
     default_param2 = "qwer"
 
-    def process_data(self, data):
-        print(self.default_param1)
+    @staticmethod
+    def process_data(data):
+        data["tp_count"] = data["tp_count"] - 20
+        data["fp_count"] = data["fp_count"] + 20
         return data
 
 
@@ -53,6 +66,8 @@ class LongestTacticsPath:
     default_param1 = 789
     default_param2 = "qwer"
 
-    def process_data(self, data):
-        print(self.default_param1)
+    @staticmethod
+    def process_data(data):
+        data["tp_count"] = data["tp_count"] * 0.8
+        data["fp_count"] = data["fp_count"] * 0.8
         return data

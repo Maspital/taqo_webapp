@@ -6,12 +6,12 @@ import dash_bootstrap_components as dbc
 from os import path
 
 from src.modules import dataset_cards, handler, pipeline_cards
-from src.callbacks import get_callbacks
+from src.callbacks import dataflow_callbacks
 
 app = Dash(__name__,
            # Select theme here https://dash-bootstrap-components.opensource.faculty.ai/docs/themes/
            external_stylesheets=[dbc.themes.BOOTSTRAP],
-           prevent_initial_callbacks=True,
+           # prevent_initial_callbacks=True,
            assets_url_path="/assets/",
            )
 datasets = handler.get_datasets()
@@ -21,7 +21,8 @@ app.layout = html.Div(
     [
         dcc.Store(id="selected_dataset"),
         dcc.Store(id="selected_pipelines"),
-        dcc.Store(id="created_graphs"),
+        dcc.Store(id="processed_data"),
+        dcc.Store(id="state_last_selected_dataset"),
 
         dbc.Stack(
             [
@@ -62,7 +63,7 @@ app.layout = html.Div(
                     [
                         dbc.Row(
                             [
-                                dbc.Col(dataset_cards.dataset_card(path, index), width=3)
+                                dbc.Col(dataset_cards.dataset_card(path, index, app), width=3)
                                 for index, path
                                 in enumerate(datasets)
                             ],
@@ -78,9 +79,19 @@ app.layout = html.Div(
                     title="RBA Pipelines",
                 ),
                 dbc.AccordionItem(
-                    html.Div([
-                       dcc.Graph(id="bar_chart")
-                    ]),
+                    dbc.Row(
+                        [
+                            dbc.Col(
+                                dcc.Graph(id="bar_chart"), width=4,
+                            ),
+                            dbc.Col(
+                                dcc.Graph(id="bar_chart2"), width=4,
+                            ),
+                            dbc.Col(
+                                dcc.Graph(id="bar_chart3"), width=4,
+                            )
+                        ]
+                    ),
                     title="Evaluation",
                     style={
                         "display": "block"
@@ -93,7 +104,7 @@ app.layout = html.Div(
     ]
 )
 
-get_callbacks(app)
+dataflow_callbacks.get_callbacks(app)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
