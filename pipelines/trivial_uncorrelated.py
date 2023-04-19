@@ -14,7 +14,6 @@ class SeverityScore:
     default_param1 = 000
     default_param2 = "qwer"
 
-    @staticmethod
-    def process_data(data):
-        print(SeverityScore.default_param1)
+    def process_data(self, data):
+        print(self.default_param1)
         return data

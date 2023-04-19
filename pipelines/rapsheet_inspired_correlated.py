@@ -14,9 +14,8 @@ class SeverityScore:
     default_param1 = 123
     default_param2 = "qwer"
 
-    @staticmethod
-    def process_data(data):
-        print(SeverityScore.default_param1)
+    def process_data(self, data):
+        print(self.default_param1)
         return data
 
 
@@ -33,9 +32,8 @@ class ConfidenceModifier:
     default_param1 = 456
     default_param2 = "qwer"
 
-    @staticmethod
-    def process_data(data):
-        print(ConfidenceModifier.default_param1)
+    def process_data(self, data):
+        print(self.default_param1)
         return data
 
 
@@ -55,7 +53,6 @@ class LongestTacticsPath:
     default_param1 = 789
     default_param2 = "qwer"
 
-    @staticmethod
-    def process_data(data):
-        print(LongestTacticsPath.default_param1)
+    def process_data(self, data):
+        print(self.default_param1)
         return data
