@@ -47,8 +47,8 @@ def retrieve_pipeline_functions(pipelines):
 
 
 def retrieve_dataset(dataset_index):
-    dateset = get_datasets()[dataset_index]
-    with open(dateset) as file:
+    dataset = get_datasets()[dataset_index]
+    with open(dataset) as file:
         lines = file.readlines()
         json_objects = [json.loads(line) for line in lines]
 

@@ -15,7 +15,7 @@ app = Dash(__name__,
            assets_url_path="/assets/",
            )
 datasets = handler.get_datasets()
-pipelines = handler.get_pipelines("./pipelines/")
+pipelines = handler.get_pipelines()
 
 app.layout = html.Div(
     [
@@ -106,4 +106,8 @@ app.layout = html.Div(
 dataflow_callbacks.get_callbacks(app)
 
 if __name__ == '__main__':
+    app.run_server(debug=True)
+
+
+def run():
     app.run_server(debug=True)

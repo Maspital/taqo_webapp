@@ -2,9 +2,11 @@ import os
 import importlib.util
 import inspect
 
+from src.utils import get_project_root
+
 
 def get_datasets():
-    dataset_dir = "./datasets/"
+    dataset_dir = os.path.join(get_project_root(), "datasets/")
 
     datasets = []
     for path in os.listdir(dataset_dir):
@@ -14,23 +16,17 @@ def get_datasets():
     return datasets
 
 
-def get_pipelines(directory):
-    """
-    Load all classes from Python modules in a directory.
-    Each module represents a category, each class within that module a pipeline of that category.
-
-    :param directory: str, the path to the directory to search for modules.
-    :return: dict, categories as keys, list of instantiated classes (pipelines) as values for each ke
-    """
+def get_pipelines():
     result = {}
+    pipeline_dir = os.path.join(get_project_root(), "pipelines/")
 
-    files = os.listdir(directory)
+    files = os.listdir(pipeline_dir)
 
     for file_name in files:
         if not file_name.endswith('.py'):
             continue
 
-        module_path = os.path.join(directory, file_name)
+        module_path = os.path.join(pipeline_dir, file_name)
 
         module_spec = importlib.util.spec_from_file_location(file_name[:-3], module_path)
         module = importlib.util.module_from_spec(module_spec)
