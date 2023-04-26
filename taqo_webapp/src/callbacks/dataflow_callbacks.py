@@ -13,6 +13,7 @@ def get_callbacks(app):
         Input({"type": "dataset_select_checkbox", "index": ALL}, "checked"),
     )
     def set_current_datasets(checkbox_state):
+        # List items are conveniently ordered by the index of the checkboxes
         selected_dataset_indexes = []
         for index, state in enumerate(checkbox_state):
             if state:
