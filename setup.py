@@ -8,6 +8,7 @@ setup(
     install_requires=[
         "dash",
         "dash_bootstrap_components",
+        "dash_mantine_components",
     ],
     entry_points={
         'console_scripts': [
