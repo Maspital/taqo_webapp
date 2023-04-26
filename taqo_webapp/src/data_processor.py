@@ -4,11 +4,11 @@ import json
 from src.modules.handler import get_datasets
 
 
-def execute_pipelines(dataset_index, pipelines):
+def execute_pipelines(dataset_indexes, pipelines):
     pipelines = retrieve_pipeline_functions(pipelines)
-    dataset = retrieve_dataset(dataset_index)
+    datasets = retrieve_datasets(dataset_indexes)
 
-    prepped_data = prepare_data(dataset)
+    prepped_data = prepare_data(datasets)
     final_datasets = {}
 
     for category, pipes in pipelines.items():
@@ -46,13 +46,17 @@ def retrieve_pipeline_functions(pipelines):
     return function_dict
 
 
-def retrieve_dataset(dataset_index):
-    dataset = get_datasets()[dataset_index]
-    with open(dataset) as file:
-        lines = file.readlines()
-        json_objects = [json.loads(line) for line in lines]
+def retrieve_datasets(dataset_indexes):
+    all_datasets = get_datasets()
+    combined_data = []
 
-    return json_objects
+    for index in dataset_indexes:
+        selection = all_datasets[index]
+        with open(selection) as file:
+            lines = file.readlines()
+            combined_data.extend([json.loads(line) for line in lines])
+
+    return combined_data
 
 
 def prepare_data(dataset):

@@ -1,9 +1,10 @@
 from dash import html
 import dash_bootstrap_components as dbc
+import dash_mantine_components as dmc
 from dash import Output, Input
 
 
-def dataset_card(title, index, app):
+def dataset_card(title, button_index, app):
     base_color = "#FFFFFF"
     pressed_color = "#09b2ac"
 
@@ -13,37 +14,36 @@ def dataset_card(title, index, app):
                 [
                     html.H5(title.split("/")[-1], className="card-title"),
                     html.P(
-                        "Some quick example text to build on the card title and "
-                        "make up the bulk of the card's content.",
+                        "The content here can be pulled from the respective dataset, "
+                        "like meta information or whatever. It could also be generated from an info file that is "
+                        "also located in the \"datasets\" directory.",
                         className="card-text",
                     ),
-                    dbc.Button("Activate dataset",
-                               color="primary",
-                               id={
-                                   "type": "dataset_select_button",
-                                   "index": index,
-                               },
-                               n_clicks=0,
-                               ),
+                    dmc.Checkbox(
+                        id= {
+                            "type": "dataset_select_checkbox",
+                            "index": button_index,
+                        },
+                        label="Use dataset?"
+                    )
                 ],
             ),
         ],
         id={
             "type": "dataset_card",
-            "index": index
+            "index": button_index
         },
         color=base_color,
     )
 
+    # Register a separate callback for each created button
     @app.callback(
-        Output({"type": "dataset_card", "index": index}, "color"),
-        Input("state_selected_dataset", "data"),
+        Output({"type": "dataset_card", "index": button_index}, "color"),
+        Input("state_selected_datasets", "data"),
     )
-    def update_card_style(last_button):
-        # If this card contains the last pressed button, set the color to the pressed color
-        if index == last_button:
+    def update_card_style(toggled_buttons):
+        if toggled_buttons and button_index in toggled_buttons:
             return pressed_color
-        # Otherwise, set the color to the base color
         else:
             return base_color
 

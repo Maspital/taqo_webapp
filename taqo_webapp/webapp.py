@@ -19,7 +19,7 @@ pipelines = handler.get_pipelines()
 
 app.layout = html.Div(
     [
-        dcc.Store(id="state_selected_dataset"),
+        dcc.Store(id="state_selected_datasets"),
         dcc.Store(id="state_selected_pipelines"),
         dcc.Store(id="state_processed_data"),
 

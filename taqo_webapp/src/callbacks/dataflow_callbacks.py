@@ -9,15 +9,15 @@ import src.graph_creator as gc
 
 def get_callbacks(app):
     @app.callback(
-        Output("state_selected_dataset", "data"),
-        Input({"type": "dataset_select_button", "index": ALL}, "n_clicks"),
-        State({"type": "dataset_select_button", "index": ALL}, "children"),
-        prevent_initial_call=True,
+        Output("state_selected_datasets", "data"),
+        Input({"type": "dataset_select_checkbox", "index": ALL}, "checked"),
     )
-    def set_current_dataset(*args):
-        pressed_button = ast.literal_eval(callback_context.triggered[0]["prop_id"].split(".")[0])
-        dataset_index = pressed_button["index"]
-        return dataset_index
+    def set_current_datasets(checkbox_state):
+        selected_dataset_indexes = []
+        for index, state in enumerate(checkbox_state):
+            if state:
+                selected_dataset_indexes.append(index)
+        return selected_dataset_indexes
 
     @app.callback(
         Output("state_selected_pipelines", "data"),
@@ -37,7 +37,7 @@ def get_callbacks(app):
 
     @app.callback(
         Output('state_processed_data', 'data'),
-        Input('state_selected_dataset', 'data'),
+        Input('state_selected_datasets', 'data'),
         Input('state_selected_pipelines', 'data')
     )
     def process_data(data, pipes):
