@@ -1,10 +1,9 @@
-from dash import html
+from dash import html, Output, Input
 import dash_bootstrap_components as dbc
 import dash_mantine_components as dmc
-from dash import Output, Input
 
 
-def dataset_card(title, button_index, app):
+def dataset_card(dataset: dict, button_index: int, app):
     base_color = "#FFFFFF"
     pressed_color = "#09b2ac"
 
@@ -12,15 +11,13 @@ def dataset_card(title, button_index, app):
         [
             dbc.CardBody(
                 [
-                    html.H5(title.split("/")[-1], className="card-title"),
+                    html.H5(dataset["name"], className="card-title"),
                     html.P(
-                        "The content here can be pulled from the respective dataset, "
-                        "like meta information or whatever. It could also be generated from an info file that is "
-                        "also located in the \"datasets\" directory.",
+                        dataset["description"],
                         className="card-text",
                     ),
                     dmc.Checkbox(
-                        id= {
+                        id={
                             "type": "dataset_select_checkbox",
                             "index": button_index,
                         },

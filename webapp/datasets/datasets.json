@@ -1,0 +1,12 @@
+[
+   {
+      "name": "SOCBED",
+      "filename": "socbed/socbed.jsonl",
+      "description": "This is a short description for the SOCBED dataset"
+   },
+   {
+      "name": "Also SOCBED",
+      "filename": "socbed/socbed.jsonl",
+      "description": "Another entry which points to the same dataset"
+   }
+]

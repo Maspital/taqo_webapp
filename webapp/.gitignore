@@ -1,0 +1,13 @@
+# PyCharm meta folder
+.idea/
+
+### Python ###
+__pycache__/
+
+### TOX and egg files
+.tox/
+*.egg-info
+
+### Python virtual environments
+*_venv/
+.venv/
