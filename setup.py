@@ -10,8 +10,12 @@ setup(
         "dash_bootstrap_components",
         "dash_mantine_components",
         "dash_iconify",
+        "dash[testing]",
         "plotly",
+        "python-dateutil",
         "more_itertools",
+        "pytest",
+        "mock",
     ],
     entry_points={
         'console_scripts': [

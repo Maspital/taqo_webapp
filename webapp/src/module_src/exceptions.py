@@ -1,0 +1,2 @@
+class InvalidSequenceMember(Exception):
+    pass

@@ -1,0 +1,698 @@
+{
+    "t1001.002": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1003": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1005": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1007": {
+        "likelihood_score": 2,
+        "severity_score": 2
+    },
+    "t1012": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1014": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1016": {
+        "likelihood_score": null,
+        "severity_score": 2
+    },
+    "t1018": {
+        "likelihood_score": null,
+        "severity_score": 2
+    },
+    "t1021": {
+        "likelihood_score": null,
+        "severity_score": 5
+    },
+    "t1027": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1027.001": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1027.003": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1027.004": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1027.006": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1027.009": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1033": {
+        "likelihood_score": 2,
+        "severity_score": 2
+    },
+    "t1036": {
+        "likelihood_score": null,
+        "severity_score": 5
+    },
+    "t1036.003": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1036.004": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1036.005": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1036.006": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1036.007": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1039": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1040": {
+        "likelihood_score": 3,
+        "severity_score": 5
+    },
+    "t1046": {
+        "likelihood_score": null,
+        "severity_score": 2
+    },
+    "t1049": {
+        "likelihood_score": null,
+        "severity_score": 2
+    },
+    "t1052": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1055": {
+        "likelihood_score": 3,
+        "severity_score": 5
+    },
+    "t1055.003": {
+        "likelihood_score": 2,
+        "severity_score": 5
+    },
+    "t1056": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1056.001": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1056.004": {
+        "likelihood_score": null,
+        "severity_score": 2
+    },
+    "t1057": {
+        "likelihood_score": 2,
+        "severity_score": 2
+    },
+    "t1069": {
+        "likelihood_score": 2,
+        "severity_score": 2
+    },
+    "t1072": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1078": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1078.001": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1082": {
+        "likelihood_score": 4,
+        "severity_score": 2
+    },
+    "t1083": {
+        "likelihood_score": 4,
+        "severity_score": 3
+    },
+    "t1087": {
+        "likelihood_score": 2,
+        "severity_score": 2
+    },
+    "t1090.001": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1090.004": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1091": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1092": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1110": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1110.001": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1110.002": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1110.003": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1110.004": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1111": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1112": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1113": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1114.002": {
+        "likelihood_score": null,
+        "severity_score": 5
+    },
+    "t1115": {
+        "likelihood_score": 2,
+        "severity_score": 2
+    },
+    "t1119": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1120": {
+        "likelihood_score": 2,
+        "severity_score": 3
+    },
+    "t1123": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1124": {
+        "likelihood_score": null,
+        "severity_score": 2
+    },
+    "t1125": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1127": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1133": {
+        "likelihood_score": null,
+        "severity_score": 5
+    },
+    "t1134": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1134.001": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1134.002": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1134.003": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1135": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1176": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1185": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1195": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1195.001": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1195.002": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1195.003": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1200": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1211": {
+        "likelihood_score": 2,
+        "severity_score": 5
+    },
+    "t1213": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1217": {
+        "likelihood_score": 4,
+        "severity_score": 1
+    },
+    "t1218.001": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1221": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1491": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1495": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1498.001": {
+        "likelihood_score": 4,
+        "severity_score": 3
+    },
+    "t1499": {
+        "likelihood_score": 4,
+        "severity_score": 3
+    },
+    "t1499.001": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1499.002": {
+        "likelihood_score": 2,
+        "severity_score": 3
+    },
+    "t1499.003": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1499.004": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1505.003": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1505.004": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1505.005": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1513": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1528": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1530": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1531": {
+        "likelihood_score": 4,
+        "severity_score": 3
+    },
+    "t1534": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1539": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1542.001": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1542.002": {
+        "likelihood_score": 2,
+        "severity_score": 5
+    },
+    "t1542.003": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1543.003": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1546.004": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1546.008": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1546.016": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1547.001": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1547.006": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1547.009": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1547.014": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1548": {
+        "likelihood_score": 4,
+        "severity_score": 3
+    },
+    "t1548.004": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1550.001": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1550.002": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1550.003": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1550.004": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1552.001": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1552.002": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1552.003": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1552.004": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1552.006": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1553.002": {
+        "likelihood_score": 2,
+        "severity_score": 5
+    },
+    "t1553.004": {
+        "likelihood_score": 2,
+        "severity_score": 2
+    },
+    "t1554": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1555": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1556": {
+        "likelihood_score": 2,
+        "severity_score": 5
+    },
+    "t1556.006": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1557": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1557.002": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1557.003": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1558": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1558.003": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1562.001": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1562.002": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1562.003": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1562.004": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1562.006": {
+        "likelihood_score": null,
+        "severity_score": 2
+    },
+    "t1562.007": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1562.008": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1562.009": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1563": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1564.009": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1565.002": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1566": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1566.001": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1566.002": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1566.003": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1574.001": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1574.002": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1574.004": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1574.005": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1574.006": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1574.007": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1574.008": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1574.009": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1574.010": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1574.011": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1574.013": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1584.002": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1589": {
+        "likelihood_score": 3,
+        "severity_score": 2
+    },
+    "t1590": {
+        "likelihood_score": null,
+        "severity_score": 2
+    },
+    "t1592": {
+        "likelihood_score": 4,
+        "severity_score": 1
+    },
+    "t1592.002": {
+        "likelihood_score": null,
+        "severity_score": 2
+    },
+    "t1595": {
+        "likelihood_score": 4,
+        "severity_score": 1
+    },
+    "t1598": {
+        "likelihood_score": 4,
+        "severity_score": 5
+    },
+    "t1598.001": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1598.002": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1598.003": {
+        "likelihood_score": 4,
+        "severity_score": 4
+    },
+    "t1599": {
+        "likelihood_score": 3,
+        "severity_score": 4
+    },
+    "t1600": {
+        "likelihood_score": null,
+        "severity_score": 4
+    },
+    "t1602": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1606": {
+        "likelihood_score": 3,
+        "severity_score": 3
+    },
+    "t1606.001": {
+        "likelihood_score": null,
+        "severity_score": 3
+    },
+    "t1611": {
+        "likelihood_score": 2,
+        "severity_score": 5
+    },
+    "t1614": {
+        "likelihood_score": 4,
+        "severity_score": 1
+    },
+    "t1615": {
+        "likelihood_score": 2,
+        "severity_score": 2
+    },
+    "t1620": {
+        "likelihood_score": 2,
+        "severity_score": 4
+    },
+    "t1647": {
+        "likelihood_score": null,
+        "severity_score": 3
+    }
+}

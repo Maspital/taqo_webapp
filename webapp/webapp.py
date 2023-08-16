@@ -3,13 +3,16 @@
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 
-from src.modules import dataset_cards, handler, pipelines, graphs, module_preview, misc
+from src.backend import handler
+from src.layout import dataset_cards, module_preview, graphs, utils
+from src.layout import pipelines
 from src.callbacks import (
-    pipeline_callbacks,
-    content_callbacks,
-    parameter_callbacks,
+    graph_backend,
+    graph_layout,
+    module_parameters,
+    pipeline_backend,
+    pipeline_layout,
     processing_callbacks,
-    graph_callbacks,
 )
 
 app = Dash(
@@ -109,7 +112,7 @@ app.layout = html.Div(
                 dbc.AccordionItem(
                     [
                         module_preview.create_module_preview(modules),
-                        misc.large_visual_divider(),
+                        utils.large_visual_divider(),
                         pipelines.create_pipeline_view(),
                     ],
                     title="RBA Pipelines",
@@ -128,11 +131,12 @@ app.layout = html.Div(
     ]
 )
 
-pipeline_callbacks.get_callbacks(app)
-content_callbacks.get_callbacks(app)
-parameter_callbacks.get_callbacks(app)
+graph_backend.get_callbacks(app)
+graph_layout.get_callbacks(app)
+module_parameters.get_callbacks(app)
+pipeline_backend.get_callbacks(app)
+pipeline_layout.get_callbacks(app)
 processing_callbacks.get_callbacks(app)
-graph_callbacks.get_callbacks(app)
 
 if __name__ == "__main__":
     app.run_server(debug=True)
